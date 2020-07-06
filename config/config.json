@@ -1,7 +1,7 @@
 {
   "development": {
    
-    "database": "project2-express",
+    "database": "camping-trip",
     "host": "127.0.0.1",
     "dialect": "postgres"
     
