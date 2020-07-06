@@ -1,1 +1,13 @@
-<h2>Hi, <%= currentUser.name %>. Welcome to the app!</h2>
+<h2>Hi, <%= currentUser.name %>. Let's go camping!</h2>
+<a href="/trips">My Trips</a>
+<a href="/favorites">My Favorites</a>
+
+<h3>Create a new camping trip</h3>
+<form action="/profile" method="POST">
+    <label for="location">Choose your location: </label>
+    <select id="location" name="location">
+        <option value="northern">Northern Hemisphere</option>
+        <option value="southern">Southern Hemisphere</option>
+      </select>
+      <input type="submit">
+</form>

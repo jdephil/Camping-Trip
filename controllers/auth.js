@@ -72,18 +72,11 @@ router.post('/login', function(req, res, next) {
             req.flash('success', 'you are validated and logged in')
             // if sucess save session and redirect user
             req.session.save(function() {
-                return res.redirect('/profile')
+                return res.redirect('/')
             })
         })
     })(req, res, next)
 })
-
-// router.post('login', passport.authenticate('local', {
-//     successRedirect: '/',
-//     failureRedirect: '/auth/login',
-//     successFlash: 'welcome to our app',
-//     failureFlash: 'invalid username or password'
-// }))
 
 router.get('/logout', function(req, res) {
     req.logout()

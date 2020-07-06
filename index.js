@@ -16,6 +16,7 @@ const db = require('./models')
 // want add link to our custom middleware for isLoggedIn
 const isLoggedIn = require('./middleware/isLoggedIn')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const axios = require('axios'); 
 
 
 // --- App Setup
@@ -23,12 +24,13 @@ const app = Express()
 // set app to use false urlencoding 
 app.use(Express.urlencoded({ extended: false }))
 // set app public directory for use
-app.use(Express.static(__dirname + 'public'))
+app.use(Express.static(__dirname + '/public'))
 // set app ejsLayouts for render
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(require('morgan')('dev'))
 app.use(helmet())
+
 
 // create new isntance of class Sequelize Store
 const sessionStore = new SequelizeStore({
@@ -57,6 +59,19 @@ app.use(function(req, res, next) {
     next()
 })
 
+app.get('/stars', function(req, res) {
+    var nasaUrl = `https://images-api.nasa.gov/search?q=${req.query.search}&media_type=image`;
+    // Use request to call the API
+    axios.get(nasaUrl).then( function(apiResponse) {
+      var stars = apiResponse.data;
+      res.render('index', { stars: stars });
+    console.log(stars)
+    //res.send(stars)
+    }).catch(error => {
+        res.send(error)
+    })
+  });
+
 // --- Routes
 app.get('/', (req, res) => {
     // check to see if user logged in
@@ -70,6 +85,10 @@ app.get('/profile', isLoggedIn, function(req, res) {
 
 // include auth controller
 app.use('/auth', require('./controllers/auth'))
+
+app.use('/favorites', require('./controllers/favorites'))
+
+app.use('/trips', require('./controllers/trips'))
 
 // initialize App on Port
 app.listen(process.env.PORT || 3000, function() {
