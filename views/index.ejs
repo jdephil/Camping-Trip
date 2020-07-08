@@ -1,10 +1,9 @@
-
-<img src="../static/camping-home.jpg" alt="campsite">
-<form action="/stars" method="GET">
+<form id='searchForm' action="/results" method="GET">
     <label for="searchBox">Search for a constellation: </label>
+    <br>
     <input type="text" name="search" id="searchBox">
 </form>
+<img id="campingImg" src="../static/camping-home.jpg" alt="campsite">
 
-<img src="<%= stars.collection.items[0].links[0].href %>" alt="">
-<p><%= stars.collection.items[0].data[0].title %></p>
-<p><%= stars.collection.items[0].data[0].description %></p>
+
+

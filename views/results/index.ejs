@@ -1,0 +1,17 @@
+<form id='searchForm' action="/results" method="GET">
+    <label for="searchBox">Search for a constellation: </label>
+    <br>
+    <input type="text" name="search" id="searchBox">
+</form>
+<div id="container">
+<img id="campingImg" src="../static/camping-home.jpg" alt="campsite">
+
+<img id='resultImg' src="<%= stars.collection.items[0].links[0].href %>" alt="">
+<p class='titleP'><%= stars.collection.items[0].data[0].title %></p>
+<a id="detailsLink" href="/results/show">Tell me more!</a>
+<form method="POST" action="/favorites">
+    <input hidden type="text" name="name" value="<%= stars.collection.items[0].links[0].href %>">
+    <button id='favBtn' class="btn" type="submit">Favorite</button>
+  </form>
+</div>
+

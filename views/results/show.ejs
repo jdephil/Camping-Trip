@@ -1,0 +1,7 @@
+<img src="<%= stars.collection.items[0].links[0].href %>" alt="">
+<p><%= stars.collection.items[0].data[0].title %></p>
+<p><%= stars.collection.items[0].data[0].description %></p>
+<form method="POST" action="/favorites">
+    <input hidden type="text" name="name" value="<%= stars.collection.items[0].links[0].href %>">
+    <button id='favBtn' class="btn" type="submit">Favorite</button>
+  </form>

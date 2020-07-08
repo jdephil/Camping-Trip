@@ -1,0 +1,93 @@
+body {
+    margin: 0 auto;
+    text-align: center;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#093274+0,1f2c56+100 */
+    background: #1F2C56; /* Old browsers */
+    background: -moz-linear-gradient(top,  #093274 0%, #1F2C56 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #093274 0%,#1f2c56 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #093274 0%,#1f2c56 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#093274', endColorstr='#1f2c56',GradientType=0 ); /* IE6-9 */
+    color: white;
+    font-size: 24px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+a:link {
+    color: white;
+}
+
+a:visited {
+    color: #FCEBA1;
+}
+
+a:hover {
+    color: grey;
+}
+
+.container {
+    position: relative;
+}
+.titleP {
+    position: absolute;
+    top: 355px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #174D9B;
+    padding: 2px;
+}
+
+.descriptionP {
+    position: absolute;
+    top: 800px;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    background-color: #1F2C56;
+    padding: 2px;
+    width: 800px;
+}
+
+
+
+#nav {
+   
+}
+
+#campingImg {
+    width: 80%;
+}
+
+#resultImg {
+    position: absolute;
+    display: inline-block;
+    width: 40%;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 304px;
+}
+
+
+#searchForm {
+    position: absolute;
+    display: inline-block;
+    width: 40%;
+    top: 487px;
+    left: 71%;
+    transform: translate(-50%, -50%);
+    
+}
+
+#favBtn {
+    position: absolute;
+    top: 20%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+
+#detailsLink {
+    position: absolute;
+    top: 65%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}

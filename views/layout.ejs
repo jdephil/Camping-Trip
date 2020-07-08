@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Camping Trip</title>
 </head>
 <body>
     <header>
-        <nav>
+        <nav id="nav">
             <% if (currentUser) { %>
-                <a href="/">Home</a>
-                <a href="/profile">Profile</a>
-                <a href="/auth/logout">Logout</a>
+                <a class='navLink' href="/">Home</a>
+                <a class='navLink' href="/profile">Profile</a>
+                <a class='navLink' href="/auth/logout">Logout</a>
                 
             <% } else { %>
-                <a href="/auth/register">Register</a>
-                <a href="/auth/login">Login</a>
+                <a class='navLink' href="/auth/register">Register</a>
+                <a class='navLink' href="/auth/login">Login</a>
             <% } %>
         </nav>
     </header>

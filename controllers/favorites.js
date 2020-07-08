@@ -23,7 +23,7 @@ router.post('/', function(req, res) {
         image: req.body.image
     })
     .then((favorites) => {
-      res.redirect('/')
+      res.redirect('/results')
     }).catch(error => {
       console.log(error)
     })

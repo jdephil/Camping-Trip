@@ -59,18 +59,27 @@ app.use(function(req, res, next) {
     next()
 })
 
-app.get('/stars', function(req, res) {
+app.get('/results', function(req, res) {
     var nasaUrl = `https://images-api.nasa.gov/search?q=${req.query.search}&media_type=image`;
     // Use request to call the API
     axios.get(nasaUrl).then( function(apiResponse) {
       var stars = apiResponse.data;
-      res.render('index', { stars: stars });
-    console.log(stars)
-    //res.send(stars)
+      res.render('results/index', { stars: stars });
+      console.log(stars)
+      //res.send(stars)
     }).catch(error => {
         res.send(error)
     })
-  });
+});
+
+  app.get('/results/show', (req, res) => {
+    var nasaUrl = `https://images-api.nasa.gov/search?q=${req.query.search}&media_type=image`;
+    axios.get(nasaUrl).then( function(apiResponse) {
+      var stars = apiResponse.data;
+      res.render('results/show', { stars: stars });
+      console.log(stars)
+    })
+})
 
 // --- Routes
 app.get('/', (req, res) => {
@@ -78,6 +87,8 @@ app.get('/', (req, res) => {
     res.render('index')
 
 })
+
+
 
 app.get('/profile', isLoggedIn, function(req, res) {
     res.render('profile')
