@@ -4,6 +4,8 @@ const express = require('express')
 const router = express.Router()
 // import db
 const db = require('../models')
+const flash = require('connect-flash')
+const passport = require('../config/ppConfig')
 
 router.get('/', function(req, res) {
     db.favorite.findAll().then((starsAll) => {
@@ -20,10 +22,13 @@ router.post('/', function(req, res) {
     db.favorite.create({
         name: req.body.name,
         description: req.body.description,
-        image: req.body.image
+        photo: req.body.photo,
+        userId: req.body.userId
     })
     .then((favorites) => {
-      res.redirect('/results')
+      
+      req.flash('success', 'Favorited!')
+      //res.redirect('/results')
     }).catch(error => {
       console.log(error)
     })

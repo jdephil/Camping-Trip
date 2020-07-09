@@ -72,8 +72,8 @@ app.get('/results', function(req, res) {
     })
 });
 
-  app.get('/results/show', (req, res) => {
-    var nasaUrl = `https://images-api.nasa.gov/search?q=${req.query.search}&media_type=image`;
+  app.get('/results/:id', (req, res) => {
+    var nasaUrl = `https://images-api.nasa.gov/search?q=${req.params.id}&media_type=image`;
     axios.get(nasaUrl).then( function(apiResponse) {
       var stars = apiResponse.data;
       res.render('results/show', { stars: stars });

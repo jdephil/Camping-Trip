@@ -30,7 +30,7 @@ a:hover {
 }
 .titleP {
     position: absolute;
-    top: 355px;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #174D9B;
@@ -72,7 +72,7 @@ a:hover {
     position: absolute;
     display: inline-block;
     width: 40%;
-    top: 487px;
+    top: 58%;
     left: 71%;
     transform: translate(-50%, -50%);
     

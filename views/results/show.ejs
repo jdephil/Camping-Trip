@@ -1,7 +1,9 @@
-<img src="<%= stars.collection.items[0].links[0].href %>" alt="">
+<img src="<%= stars.collection.items[0].links[0].href %>" alt="constellation">
 <p><%= stars.collection.items[0].data[0].title %></p>
 <p><%= stars.collection.items[0].data[0].description %></p>
 <form method="POST" action="/favorites">
-    <input hidden type="text" name="name" value="<%= stars.collection.items[0].links[0].href %>">
+    <input hidden type="text" name="photo" value="<%= stars.collection.items[0].links[0].href %>">
+    <input hidden type="text" name="name" value="<%= stars.collection.items[0].data[0].title %>">
+    <input hidden type="text" name="description" value="<%= stars.collection.items[0].data[0].description %>">
     <button id='favBtn' class="btn" type="submit">Favorite</button>
-  </form>
+    </form>
