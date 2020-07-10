@@ -91,3 +91,11 @@ a:hover {
     left: 30%;
     transform: translate(-50%, -50%);
 }
+
+#suggestions {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    background-color: #093173;
+}

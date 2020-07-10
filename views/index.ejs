@@ -4,28 +4,31 @@
     <input type="text" name="search" id="searchBox">
 </form>
 <img id="campingImg" src="../static/camping-home.jpg" alt="campsite">
-<a id='suggestions' href="/results/suggestions[i]">Discover</a>
+<a id='suggestions' href="/results?search=PIA04926">Discover</a>
 
 
 
 <script>
+    let suggestionsHref = document.getElementById('suggestions').href
+    console.log(suggestionsHref)
+    //const newPath = s => suggestionsHref = s
     let suggestionsLink = document.getElementById('suggestions')
-    const display = s => suggestionsLink.innerText = s;
+    //const display = s => suggestionsLink.innerText = s
+    
     // create loop to iterate through photos
     let norStars = [
         'Aquarius',
         'Aquila',
-        'Aries',
         'Canis Major',
         'Cassiopeia',
+        'Coma Berenices',
         'Cygnus Northern Cross',
-        'Gemini',
         'Leo',
-        'Lyra',
         'Orion',
+        'Orions Belt',
+        'Orions Sword',
         'Pisces',
         'Scorpius',
-        'Taurus',
         'Ursa Major Big Dipper',
         'Ursa Minor Little Dipper'
     ]
@@ -47,28 +50,64 @@
         'Menkent',
         'Vela'
     ]
-
-//     let suggestions = () => {
-//     for (var i = 0; i < norStars.length; i++) {
-//         console.log(norStars[i])
-        
-//         i++
-       
-//     }
-//   }
-  
-//   let runSuggestions = setInterval(suggestions, 2000)
-
-//   runSuggestions()
  
+    let nsPath = [
+        //aquarius
+        '/results?search=PIA04926',
+        //aquila
+        '/results?search=PIA23402',
+        //canis major
+        '/results?search=GSFC_20171208_Archive_e000086',
+        //cassiopeia
+        '/results?search=PIA19832',
+        //coma berenices
+        '/results?search=iss006e40537',
+        //cygnus
+        '/results?search=PIA14102',
+        //leo
+        '/results?search=GSFC_20171208_Archive_e001151',
+        //orion
+        '/results?search=sts054-97-018',
+        //orion's belt
+        '/results?search=PIA21644',
+        //orion's sword
+        '/results?search=PIA08653',
+        //pisces
+        '/results?search=GSFC_20171208_Archive_e000362',
+        //scorpius
+        '/results?search=PIA13128',
+        //big dipper
+        '/results?search=PIA15653',
+        //little dipper
+        '/results?search=iss006e21378'
 
-const delayLoop = (fn, delay) => {
-  return (norStars, i) => {
-    setTimeout(() => {
-      display(norStars);
-    }, i * 5000);
-  }
-};
-norStars.forEach(delayLoop(display, 1000));
+    ]
+    let display = s => suggestionsLink.innerText = s
+
+    const delayLoop = (fn, delay) => { 
+    return (norStars, i) => {
+        setTimeout(() => {
+        display(norStars);
+        }, i * 4000);
+    }
+    };
+
+    norStars.forEach(delayLoop(display, 1000));
+
+    let loop = s => suggestionsHref.innerHTML = s
+    console.log(loop)
+
+    const delayLoop2 = (fn, delay) => {
+        
+        return (nsPath, i) => {
+            console.log(nsPath)
+            setTimeout(() => {
+            loop(nsPath)
+            }, i * 5000);
+            
+        }
+        };
+
+    nsPath.forEach(delayLoop2(loop, 1000));
 
 </script>
