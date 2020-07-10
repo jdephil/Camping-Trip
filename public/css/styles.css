@@ -11,18 +11,22 @@ body {
     font-size: 24px;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 a:link {
     color: white;
+    text-decoration: none;
 }
 
 a:visited {
     color: #FCEBA1;
+    text-decoration: none;
 }
 
 a:hover {
     color: grey;
+    text-decoration: none;
 }
 
 .container {
@@ -47,10 +51,18 @@ a:hover {
     width: 800px;
 }
 
-
+#brandP {
+    font-family: 'Staatliches', sans-serif;
+    display: inline-block;
+    font-size: 24px;
+    margin-top: 5px;
+    margin-right: 775px;
+    color: white;
+}
 
 #nav {
-   
+   font-size: 18px;
+   text-decoration: none;
 }
 
 #campingImg {
@@ -95,7 +107,7 @@ a:hover {
 #suggestions {
     position: absolute;
     top: 20%;
-    left: 25%;
+    left: 20%;
     transform: translate(-50%, -50%);
     background-color: #093173;
 }

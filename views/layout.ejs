@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <title>Camping Trip</title>
 </head>
 <body>
     <header>
+        
         <nav id="nav">
+            <a id='brandP' class='navLink' href="/">Camping Trip</a>
             <% if (currentUser) { %>
-                <a class='navLink' href="/">Home</a>
+                
                 <a class='navLink' href="/profile">Profile</a>
                 <a class='navLink' href="/auth/logout">Logout</a>
                 
