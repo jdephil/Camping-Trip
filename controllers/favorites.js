@@ -8,9 +8,13 @@ const flash = require('connect-flash')
 const passport = require('../config/ppConfig')
 
 router.get('/', function(req, res) {
-    db.favorite.findAll().then((starsAll) => {
+    db.favorite.findAll({
+      where: {
+        userId: req.user.id
+      }
+    }).then((starsAll) => {
       res.render('favorites/index', {
-        images: starsAll
+        myFavorites: starsAll
       });
     }) 
     
@@ -20,10 +24,10 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
     // TODO: Get form data and add a new record to DB
     db.favorite.create({
-        name: req.body.name,
-        description: req.body.description,
-        photo: req.body.photo,
-        userId: req.body.userId
+      name: req.body.name,
+      description: req.body.description,
+      photo: req.body.photo,
+      userId: req.user.id
     })
     .then((favorites) => {
       
@@ -37,5 +41,47 @@ router.post('/', function(req, res) {
   
 
 
+router.delete('/:idx', (req, res) => {
+  db.favorite.destroy({
+    where: {
+      id: req.params.idx
+    }
+  }).then (function() {
+    res.redirect('/favorites')
+  }).catch(function (error) {
+    console.log(error)
+  })
+  
+})  
+
+router.get('/edit/:idx', (req, res) => {
+  db.favorite.findOne({
+    where: {
+      id: req.params.idx
+    }
+  }).then (function(favorite) {
+    res.render('favorites/edit', {favorite})
+  }).catch(function (error) {
+    console.log(error)
+  })
+ 
+})
+
+router.put('/:idx', (req, res) => {
+  db.favorite.update({
+    name: req.body.name,
+    description: req.body.description,
+    photo: req.body.photo
+  }, {
+    where: {
+      id: req.params.idx
+    }
+  }).then (function(favorite) {
+    res.redirect('/favorites')
+  }).catch(function (error) {
+    console.log(error)
+  })
+  
+})
 // export router
 module.exports = router;

@@ -1,0 +1,10 @@
+<form action="/favorites/<%= favorite.id %>/?_method=PUT" method="POST">
+  <label>Name</label>
+  <input type="text" name='name' value="<%= favorite.name %>">
+  <label>Photo</label>
+  <input type="url" name="photo" value="<%= favorite.photo %>">
+  <label>Description</label>
+  <input type="text" name="description" value="<%= favorite.description %>">
+  <input type="submit" value='Submit'>
+</form>
+

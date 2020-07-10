@@ -4,6 +4,71 @@
     <input type="text" name="search" id="searchBox">
 </form>
 <img id="campingImg" src="../static/camping-home.jpg" alt="campsite">
+<a id='suggestions' href="/results/suggestions[i]">Discover</a>
 
 
 
+<script>
+    let suggestionsLink = document.getElementById('suggestions')
+    const display = s => suggestionsLink.innerText = s;
+    // create loop to iterate through photos
+    let norStars = [
+        'Aquarius',
+        'Aquila',
+        'Aries',
+        'Canis Major',
+        'Cassiopeia',
+        'Cygnus Northern Cross',
+        'Gemini',
+        'Leo',
+        'Lyra',
+        'Orion',
+        'Pisces',
+        'Scorpius',
+        'Taurus',
+        'Ursa Major Big Dipper',
+        'Ursa Minor Little Dipper'
+    ]
+
+    let souStars = [
+        'Antila',
+        'Corvus',
+        'Libra',
+        'Crater',
+        'Centaurus',
+        'Crux',
+        'Circinus',
+        'Carina',
+        'Hydra',
+        'Norma',
+        'Lupus',
+        'Libra',
+        'Musca',
+        'Menkent',
+        'Vela'
+    ]
+
+//     let suggestions = () => {
+//     for (var i = 0; i < norStars.length; i++) {
+//         console.log(norStars[i])
+        
+//         i++
+       
+//     }
+//   }
+  
+//   let runSuggestions = setInterval(suggestions, 2000)
+
+//   runSuggestions()
+ 
+
+const delayLoop = (fn, delay) => {
+  return (norStars, i) => {
+    setTimeout(() => {
+      display(norStars);
+    }, i * 5000);
+  }
+};
+norStars.forEach(delayLoop(display, 1000));
+
+</script>

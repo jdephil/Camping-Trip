@@ -17,6 +17,7 @@ const db = require('./models')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const axios = require('axios'); 
+const methodOverride = require('method-override')
 
 
 // --- App Setup
@@ -30,6 +31,7 @@ app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 app.use(require('morgan')('dev'))
 app.use(helmet())
+app.use(methodOverride('_method'))
 
 
 // create new isntance of class Sequelize Store
@@ -59,24 +61,27 @@ app.use(function(req, res, next) {
     next()
 })
 
-app.get('/results', function(req, res) {
+app.get('/results', (req, res) => {
     var nasaUrl = `https://images-api.nasa.gov/search?q=${req.query.search}&media_type=image`;
-    // Use request to call the API
-    axios.get(nasaUrl).then( function(apiResponse) {
-      var stars = apiResponse.data;
-      res.render('results/index', { stars: stars });
-      console.log(stars)
-      //res.send(stars)
-    }).catch(error => {
-        res.send(error)
-    })
-});
+   axios.get(nasaUrl).then ( function(apiResponse) {
+       var stars = apiResponse.data
+    res.render('results/index', { 
+        stars: stars,
+        user: req.user 
+    });
+   })
+       
+
+})
 
   app.get('/results/:id', (req, res) => {
     var nasaUrl = `https://images-api.nasa.gov/search?q=${req.params.id}&media_type=image`;
     axios.get(nasaUrl).then( function(apiResponse) {
       var stars = apiResponse.data;
-      res.render('results/show', { stars: stars });
+      res.render('results/show', { 
+          stars: stars,
+          user: req.user 
+        });
       console.log(stars)
     })
 })

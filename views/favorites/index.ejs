@@ -1,7 +1,25 @@
 <h2>These are your favorite stars:</h2>
-<hr>
+
 <a href="/profile">Go back</a>
 
-<img src="<%= favorite.photo %>" alt="constellation">
-<p><%= favorite.name %></p>
-<p><%= favorite.description %></p>
+<form action="/favorites" method="GET">
+  <label for="nameFilter">Filter by Name</label>
+  <input type="text" id="nameFilter" name='nameFilter'>
+  <input type="submit">
+  </form>
+  
+  <ul>
+      <% myFavorites.forEach((favorite, index) => { %>
+          
+          <li><img src="<%= favorite.photo %>" alt="constellation"> <br> <%= favorite.name %> <br> <%= favorite.description %>/>
+          
+             <a href="/favorites/edit/<%= favorite.id %>">Edit</a>
+              <form id="deleteForm" action="/favorites/<%= favorite.id %>/?_method=DELETE" method="POST">
+              <input type="submit" value="Delete">
+          </form>
+          </li>
+      
+      <% }) %>
+  </ul>
+
+

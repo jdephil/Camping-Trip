@@ -4,17 +4,19 @@
     <input type="text" name="search" id="searchBox">
 </form>
 <div id="container">
-<img id="campingImg" src="../static/camping-home.jpg" alt="campsite">
+  <img id="campingImg" src="../static/camping-home.jpg" alt="campsite">
 
-<img id='resultImg' src="<%= stars.collection.items[0].links[0].href %>" alt="">
-<p class='titleP'><%= stars.collection.items[0].data[0].title %></p>
-<a id="detailsLink" href="/results/<%= stars.collection.items[0].data[0].nasa_id %>">Tell me more!</a>
-<form method="POST" action="/favorites">
-    <input hidden type="text" name="photo" value="<%= stars.collection.items[0].links[0].href %>">
-    <input hidden type="text" name="name" value="<%= stars.collection.items[0].data[0].title %>">
-    <input hidden type="text" name="description" value="<%= stars.collection.items[0].data[0].description %>">
-    <input hidden type="text" name="userID" value="<%= user.id %>">
-    <button id='favBtn' class="btn" type="submit">Favorite</button>
-  </form>
+  <img id='resultImg' src="<%= stars.collection.items[0].links[0].href %>" alt="">
+  <p class='titleP'><%= stars.collection.items[0].data[0].title %></p>
+  <a id="detailsLink" href="/results/<%= stars.collection.items[0].data[0].nasa_id %>">Tell me more!</a>
+
+  <form method="POST" action="/favorites">
+      <input hidden type="text" name="photo" value="<%= stars.collection.items[0].links[0].href %>">
+      <input hidden type="text" name="name" value="<%= stars.collection.items[0].data[0].title %>">
+      <input hidden type="text" name="description" value="<%= stars.collection.items[0].data[0].description %>">
+      <input hidden type="text" name="userID" value="<%= user.id %>">
+      <button id='favBtn' class="btn" type="submit">Favorite</button>
+    </form>
+
 </div>
-
+   
