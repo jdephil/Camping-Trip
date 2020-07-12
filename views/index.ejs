@@ -1,71 +1,20 @@
-<form id='searchForm' action="/results" method="GET">
-    <label for="searchBox">Search for a constellation: </label>
+<form id="searchFormHome" class='searchForm' action="/results" method="GET">
+    <label class='searchLabel' for="searchBox">Search for a constellation: </label>
     <br>
     <input type="text" name="search" id="searchBox">
+    <input class='submitBtn' type="submit" value="Go!">
 </form>
-<img id="campingImg" src="../static/camping-home.jpg" alt="campsite">
-<button id="suggestionsBtn">Discover</button>
+
+<button id="sugBtnHome" class="btn">Discover</button>
+
+<img id="homeImg" class="campingImg" src="../static/camping-home.jpg" alt="campsite">
+<p id="broText">Hey sis, <br> can you teach me about the stars?</p>
+<p id="sisText">Of course! Let's see, <br> what should I tell you about first...</p>
 
 
 
 
-<script>
- 
-
-let suggestionLoop = () => {
-    for (var i = 0; i < suggestion.length; i++) {
-        console.log(suggestion[i])
-       
-    }
-  }
-
-   
-
-    
-
-  
-    //click event
-
-   
-    // let suggestionsLink = document.getElementById('suggestions')
- 
-    
-    // // create loop to iterate through photos
-    // let norStars = [
-    //     'Aquarius',
-    //     'Aquila',
-    //     'Canis Major',
-    //     'Cassiopeia',
-    //     'Coma Berenices',
-    //     'Cygnus Northern Cross',
-    //     'Leo',
-    //     'Orion',
-    //     'Orions Belt',
-    //     'Orions Sword',
-    //     'Pisces',
-    //     'Scorpius',
-    //     'Ursa Major Big Dipper',
-    //     'Ursa Minor Little Dipper'
-    // ]
-
-    // let souStars = [
-    //     'Antila',
-    //     'Corvus',
-    //     'Libra',
-    //     'Crater',
-    //     'Centaurus',
-    //     'Crux',
-    //     'Circinus',
-    //     'Carina',
-    //     'Hydra',
-    //     'Norma',
-    //     'Lupus',
-    //     'Libra',
-    //     'Musca',
-    //     'Menkent',
-    //     'Vela'
-    // ]
- 
+<script> 
     let nsPath = [
         //aquarius
         '/results?search=PIA04926',
@@ -103,36 +52,6 @@ let suggestionLoop = () => {
        window.location.href = nsPath[i];
     }
 
-    document.getElementById('suggestionsBtn').addEventListener('click', randomize)
-
-
-    // let display = s => suggestionsLink.innerText = s
-
-    // const delayLoop = (fn, delay) => { 
-    // return (norStars, i) => {
-    //     setTimeout(() => {
-    //     display(norStars);
-    //     }, i * 4000);
-    // }
-    // };
-
-    // norStars.forEach(delayLoop(display, 1000));
-
-    // let display = s => suggestionsHref.innerHTML = s
-    // console.log(display)
-
-    // const delayLoop2 = (fn, delay) => {
-        
-    //     return (nsPath, i) => {
-    //         console.log(nsPath)
-    //         setTimeout(() => {
-    //         display(nsPath)
-    //         console.log(suggestionsHref)
-    //         }, i * 5000);
-            
-    //     }
-    //     };
-
-    // nsPath.forEach(delayLoop2(loop, 1000));
+    document.getElementById('sugBtnHome').addEventListener('click', randomize)
 
 </script>

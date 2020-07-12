@@ -62,6 +62,8 @@ app.use(function(req, res, next) {
     next()
 })
 
+
+
 app.get('/results', (req, res) => {
   var nasaUrl = `https://images-api.nasa.gov/search?q=${req.query.search}&media_type=image`;
  axios.get(nasaUrl).then ( function(apiResponse) {

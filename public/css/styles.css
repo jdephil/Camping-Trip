@@ -11,7 +11,7 @@ body {
     font-size: 24px;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 a:link {
@@ -32,23 +32,29 @@ a:hover {
 .container {
     position: relative;
 }
-.titleP {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #174D9B;
-    padding: 2px;
+
+.campingImg {
+    width: 80%;
 }
 
-.descriptionP {
+.searchForm {
     position: absolute;
-    top: 800px;
-    left: 60%;
+    display: inline-block;
+    width: 40%;
+    top: 55%;
+    left: 71%;
     transform: translate(-50%, -50%);
-    background-color: #1F2C56;
-    padding: 2px;
-    width: 800px;
+}
+
+.submitBtn {
+    font-size: 16px;
+    color: #1E406E;
+    margin: 0 10px;
+}
+
+
+.searchLabel {
+    background-color: #1D5AAC;
 }
 
 #brandP {
@@ -65,8 +71,63 @@ a:hover {
    text-decoration: none;
 }
 
-#campingImg {
-    width: 80%;
+/* ---- HOME PAGE ---- */
+
+#homeImg {
+    top: -250px;
+    position: relative;
+    z-index: -1;
+}
+
+#sugBtnHome {
+    top: 25%;
+    position: absolute;
+    margin-top: 9px;
+    left: 80%;
+    font-size: 16px;
+    color: #1E406E;
+}
+
+#broText {
+    font-family: 'Handlee', cursive;
+     position: absolute;
+     top: 25%;
+     left: 25%;
+     transform: translate(-50%, -50%);
+ }
+ 
+ #sisText {
+    font-family: 'Handlee', cursive;
+     position: absolute;
+     top: 40%;
+     left: 62%;
+ }
+ 
+ 
+ #searchFormHome {
+     top: 25%;
+ }
+
+/*  ---- RESULTS PAGE ---- */
+
+.titleP {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #174D9B;
+    padding: 2px;
+    max-width: 500px;
+}
+
+.descriptionP {
+    position: absolute;
+    top: 800px;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    background-color: #1F2C56;
+    padding: 2px;
+    width: 800px;
 }
 
 #resultImg {
@@ -79,35 +140,79 @@ a:hover {
     max-height: 304px;
 }
 
-
-#searchForm {
-    position: absolute;
-    display: inline-block;
-    width: 40%;
-    top: 58%;
-    left: 71%;
-    transform: translate(-50%, -50%);
-    
-}
-
 #favBtn {
+    border: solid 1px white;
     position: absolute;
     top: 20%;
     left: 75%;
     transform: translate(-50%, -50%);
+    background-color: #1F5798;
+    color: #D73931;
+    font-size: 32px;
+    border-radius: 100px;
 }
+
+#favBtn:hover {
+    background-color: white;
+  
+}
+
+#suggestionsBtn {
+    position: absolute;
+    top: 57%;
+    left: 83%;
+    transform: translate(-50%, -50%);
+    margin-top: 5px;
+    font-size: 16px;
+    color: #1E406E;
+}
+
 
 #detailsLink {
     position: absolute;
-    top: 65%;
-    left: 30%;
+    top: 60%;
+    left: 25%;
     transform: translate(-50%, -50%);
+    font-family: 'Handlee', cursive;
+    text-decoration: underline;
+    font-size: 28px;
 }
 
-#suggestions {
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    background-color: #093173;
+#detailsLink:visited {
+    color: white;
+}
+
+#detailsLink:hover {
+    color: grey;
+}
+
+.imageDetails {
+    margin-top: 10px;
+}
+
+.descriptionDetails {
+    font-size: 20px;
+    width: 80%;
+    margin-left: 10%;
+    
+}
+
+.favBtnDetails {
+    font-size: 32px;
+    color: #1E406E;
+}
+
+/* ---- FAVORITES PAGE ---- */
+
+#editLink {
+    display: inline;
+}
+
+#deleteForm {
+    display: inline-block;
+}
+
+#deleteBtn {
+    font-size: 16px;
+    margin: 0 5px;
 }
