@@ -5,7 +5,6 @@ const router = express.Router()
 // import db
 const db = require('../models')
 const flash = require('connect-flash')
-const passport = require('../config/ppConfig')
 
 router.get('/', function(req, res) {
     db.favorite.findAll({

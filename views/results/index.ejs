@@ -11,11 +11,18 @@
   <a id="detailsLink" href="/results/<%= stars.collection.items[0].data[0].nasa_id %>">Tell me more!</a>
 
   <form method="POST" action="/favorites">
+    <% if (currentUser) { %>
       <input hidden type="text" name="photo" value="<%= stars.collection.items[0].links[0].href %>">
       <input hidden type="text" name="name" value="<%= stars.collection.items[0].data[0].title %>">
       <input hidden type="text" name="description" value="<%= stars.collection.items[0].data[0].description %>">
       <input hidden type="text" name="userID" value="<%= user.id %>">
       <button id='favBtn' class="btn" type="submit">Favorite</button>
+      <% } else { %>
+        <input hidden type="text" name="photo" value="<%= stars.collection.items[0].links[0].href %>">
+      <input hidden type="text" name="name" value="<%= stars.collection.items[0].data[0].title %>">
+      <input hidden type="text" name="description" value="<%= stars.collection.items[0].data[0].description %>">
+    <% } %>
+      
   </form>
 
   <a id='suggestions' href="/results?search=PIA04926">Discover</a>
@@ -23,46 +30,46 @@
    
 
 <script>
-  let suggestionsHref = document.getElementById('suggestions').href
-  //const newPath = s => suggestionsHref = s
-  let suggestionsLink = document.getElementById('suggestions')
-  //const display = s => suggestionsLink.innerText = s
+  // let suggestionsHref = document.getElementById('suggestions').href
+  // //const newPath = s => suggestionsHref = s
+  // let suggestionsLink = document.getElementById('suggestions')
+  // //const display = s => suggestionsLink.innerText = s
   
   // create loop to iterate through photos
-  let norStars = [
-      'Aquarius',
-      'Aquila',
-      'Canis Major',
-      'Cassiopeia',
-      'Coma Berenices',
-      'Cygnus Northern Cross',
-      'Leo',
-      'Orion',
-      'Orions Belt',
-      'Orions Sword',
-      'Pisces',
-      'Scorpius',
-      'Ursa Major Big Dipper',
-      'Ursa Minor Little Dipper'
-  ]
+  // let norStars = [
+  //     'Aquarius',
+  //     'Aquila',
+  //     'Canis Major',
+  //     'Cassiopeia',
+  //     'Coma Berenices',
+  //     'Cygnus Northern Cross',
+  //     'Leo',
+  //     'Orion',
+  //     'Orions Belt',
+  //     'Orions Sword',
+  //     'Pisces',
+  //     'Scorpius',
+  //     'Ursa Major Big Dipper',
+  //     'Ursa Minor Little Dipper'
+  // ]
 
-  let souStars = [
-      'Antila',
-      'Corvus',
-      'Libra',
-      'Crater',
-      'Centaurus',
-      'Crux',
-      'Circinus',
-      'Carina',
-      'Hydra',
-      'Norma',
-      'Lupus',
-      'Libra',
-      'Musca',
-      'Menkent',
-      'Vela'
-  ]
+  // let souStars = [
+  //     'Antila',
+  //     'Corvus',
+  //     'Libra',
+  //     'Crater',
+  //     'Centaurus',
+  //     'Crux',
+  //     'Circinus',
+  //     'Carina',
+  //     'Hydra',
+  //     'Norma',
+  //     'Lupus',
+  //     'Libra',
+  //     'Musca',
+  //     'Menkent',
+  //     'Vela'
+  // ]
 
   let nsPath = [
       //aquarius
@@ -95,18 +102,6 @@
       '/results?search=iss006e21378'
 
   ]
-
-  let display = s => suggestionsLink.innerText = s
-
-  const delayLoop = (fn, delay) => {
-  return (norStars, i) => {
-      setTimeout(() => {
-      display(norStars);
-      }, i * 4000);
-  }
-  };
-
-  norStars.forEach(delayLoop(display, 1000));
 
 
 

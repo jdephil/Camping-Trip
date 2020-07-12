@@ -18,6 +18,7 @@ const isLoggedIn = require('./middleware/isLoggedIn')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const axios = require('axios'); 
 const methodOverride = require('method-override')
+// var campingDb = new pg.camping-trip(conString);
 
 
 // --- App Setup
@@ -62,38 +63,37 @@ app.use(function(req, res, next) {
 })
 
 app.get('/results', (req, res) => {
-    var nasaUrl = `https://images-api.nasa.gov/search?q=${req.query.search}&media_type=image`;
-   axios.get(nasaUrl).then ( function(apiResponse) {
-       var stars = apiResponse.data
-    res.render('results/index', { 
-        stars: stars,
-        user: req.user 
-    });
-   })
-       
+  var nasaUrl = `https://images-api.nasa.gov/search?q=${req.query.search}&media_type=image`;
+ axios.get(nasaUrl).then ( function(apiResponse) {
+     var stars = apiResponse.data
+  res.render('results/index', { 
+      stars: stars,
+      user: req.user 
+  });
+ })
+     
 
 })
 
-  app.get('/results/:id', (req, res) => {
-    var nasaUrl = `https://images-api.nasa.gov/search?q=${req.params.id}&media_type=image`;
-    axios.get(nasaUrl).then( function(apiResponse) {
-      var stars = apiResponse.data;
-      res.render('results/show', { 
-          stars: stars,
-          user: req.user 
-        });
-      console.log(stars)
-    })
+app.get('/results/:id', (req, res) => {
+  var nasaUrl = `https://images-api.nasa.gov/search?q=${req.params.id}&media_type=image`;
+  axios.get(nasaUrl).then( function(apiResponse) {
+    var stars = apiResponse.data;
+    res.render('results/show', { 
+        stars: stars,
+        user: req.user 
+      });
+    console.log(stars)
+  })
 })
 
 // --- Routes
+
 app.get('/', (req, res) => {
     // check to see if user logged in
     res.render('index')
 
 })
-
-
 
 app.get('/profile', isLoggedIn, function(req, res) {
     res.render('profile')
@@ -105,6 +105,8 @@ app.use('/auth', require('./controllers/auth'))
 app.use('/favorites', require('./controllers/favorites'))
 
 app.use('/trips', require('./controllers/trips'))
+
+
 
 // initialize App on Port
 app.listen(process.env.PORT || 3000, function() {

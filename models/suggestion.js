@@ -1,15 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const favorite = sequelize.define('favorite', {
+  const suggestion = sequelize.define('suggestion', {
     photo: DataTypes.STRING,
     name: DataTypes.TEXT,
     description: DataTypes.TEXT,
-    userId: DataTypes.INTEGER
+    nasaId: DataTypes.STRING,
+    keyword: DataTypes.STRING
   }, {});
-  favorite.associate = function(models) {
+  suggestion.associate = function(models) {
     // associations can be defined here
-    models.favorite.belongsTo(models.user)
-
   };
-  return favorite;
+  return suggestion;
 };

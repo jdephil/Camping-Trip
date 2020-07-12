@@ -4,52 +4,67 @@
     <input type="text" name="search" id="searchBox">
 </form>
 <img id="campingImg" src="../static/camping-home.jpg" alt="campsite">
-<a id='suggestions' href="/results?search=PIA04926">Discover</a>
+<button id="suggestionsBtn">Discover</button>
+
 
 
 
 <script>
-    let suggestionsHref = document.getElementById('suggestions').href
-    console.log(suggestionsHref)
-    //const newPath = s => suggestionsHref = s
-    let suggestionsLink = document.getElementById('suggestions')
-    //const display = s => suggestionsLink.innerText = s
-    
-    // create loop to iterate through photos
-    let norStars = [
-        'Aquarius',
-        'Aquila',
-        'Canis Major',
-        'Cassiopeia',
-        'Coma Berenices',
-        'Cygnus Northern Cross',
-        'Leo',
-        'Orion',
-        'Orions Belt',
-        'Orions Sword',
-        'Pisces',
-        'Scorpius',
-        'Ursa Major Big Dipper',
-        'Ursa Minor Little Dipper'
-    ]
+ 
 
-    let souStars = [
-        'Antila',
-        'Corvus',
-        'Libra',
-        'Crater',
-        'Centaurus',
-        'Crux',
-        'Circinus',
-        'Carina',
-        'Hydra',
-        'Norma',
-        'Lupus',
-        'Libra',
-        'Musca',
-        'Menkent',
-        'Vela'
-    ]
+let suggestionLoop = () => {
+    for (var i = 0; i < suggestion.length; i++) {
+        console.log(suggestion[i])
+       
+    }
+  }
+
+   
+
+    
+
+  
+    //click event
+
+   
+    // let suggestionsLink = document.getElementById('suggestions')
+ 
+    
+    // // create loop to iterate through photos
+    // let norStars = [
+    //     'Aquarius',
+    //     'Aquila',
+    //     'Canis Major',
+    //     'Cassiopeia',
+    //     'Coma Berenices',
+    //     'Cygnus Northern Cross',
+    //     'Leo',
+    //     'Orion',
+    //     'Orions Belt',
+    //     'Orions Sword',
+    //     'Pisces',
+    //     'Scorpius',
+    //     'Ursa Major Big Dipper',
+    //     'Ursa Minor Little Dipper'
+    // ]
+
+    // let souStars = [
+    //     'Antila',
+    //     'Corvus',
+    //     'Libra',
+    //     'Crater',
+    //     'Centaurus',
+    //     'Crux',
+    //     'Circinus',
+    //     'Carina',
+    //     'Hydra',
+    //     'Norma',
+    //     'Lupus',
+    //     'Libra',
+    //     'Musca',
+    //     'Menkent',
+    //     'Vela'
+    // ]
  
     let nsPath = [
         //aquarius
@@ -82,32 +97,42 @@
         '/results?search=iss006e21378'
 
     ]
-    let display = s => suggestionsLink.innerText = s
 
-    const delayLoop = (fn, delay) => { 
-    return (norStars, i) => {
-        setTimeout(() => {
-        display(norStars);
-        }, i * 4000);
+    let randomize = () => {
+       i = Math.floor(Math.random() * nsPath.length)    
+       window.location.href = nsPath[i];
     }
-    };
 
-    norStars.forEach(delayLoop(display, 1000));
+    document.getElementById('suggestionsBtn').addEventListener('click', randomize)
 
-    let loop = s => suggestionsHref.innerHTML = s
-    console.log(loop)
 
-    const delayLoop2 = (fn, delay) => {
+    // let display = s => suggestionsLink.innerText = s
+
+    // const delayLoop = (fn, delay) => { 
+    // return (norStars, i) => {
+    //     setTimeout(() => {
+    //     display(norStars);
+    //     }, i * 4000);
+    // }
+    // };
+
+    // norStars.forEach(delayLoop(display, 1000));
+
+    // let display = s => suggestionsHref.innerHTML = s
+    // console.log(display)
+
+    // const delayLoop2 = (fn, delay) => {
         
-        return (nsPath, i) => {
-            console.log(nsPath)
-            setTimeout(() => {
-            loop(nsPath)
-            }, i * 5000);
+    //     return (nsPath, i) => {
+    //         console.log(nsPath)
+    //         setTimeout(() => {
+    //         display(nsPath)
+    //         console.log(suggestionsHref)
+    //         }, i * 5000);
             
-        }
-        };
+    //     }
+    //     };
 
-    nsPath.forEach(delayLoop2(loop, 1000));
+    // nsPath.forEach(delayLoop2(loop, 1000));
 
 </script>
