@@ -20,13 +20,13 @@
       <input hidden type="text" name="name" value="<%= stars.collection.items[0].data[0].title %>">
       <input hidden type="text" name="description" value="<%= stars.collection.items[0].data[0].description %>">
       <input hidden type="text" name="userID" value="<%= user.id %>">
-      
+      <button id='favBtn' class="btn" type="submit">❤︎</button>
       <% } else { %>
        
     <% } %>
       
   </form>
-  <button id='favBtn' class="btn" type="submit">❤︎</button>
+  
  
 
 </div>

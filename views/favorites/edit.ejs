@@ -1,10 +1,18 @@
-<form action="/favorites/<%= favorite.id %>/?_method=PUT" method="POST">
-  <label>Name</label>
-  <input type="text" name='name' value="<%= favorite.name %>">
-  <label>Photo</label>
-  <input type="url" name="photo" value="<%= favorite.photo %>">
-  <label>Description</label>
-  <input type="text" name="description" value="<%= favorite.description %>">
+<form id="editForm" action="/favorites/<%= favorite.id %>/?_method=PUT" method="POST">
+  <label>Name:</label>
+  <br>
+  <input id='editName' type="text" name='name' value="<%= favorite.name %>">
+  <br>
+  <label>Photo:</label>
+  <br>
+  <input id='editPhoto' type="url" name="photo" value="<%= favorite.photo %>">
+  <br>
+  <label>Description:</label>
+  <br>
+  <textarea id='editDescription' type="text" name="description" rows="10" cols="50">
+    <%= favorite.description %>
+  </textarea>
+  <br>
   <input type="submit" value='Submit'>
 </form>
 

@@ -1,15 +1,16 @@
-<h2>Your Favorites</h2>
+<h2>My Favorites</h2>
   
   <ul>
       <% myFavorites.forEach((favorite, index) => { %>
-          
-        <img class='imageDetails' src="<%= favorite.photo %>" alt="constellation"> <br> 
+        <div id="favsTile">
         <h4 class="titleDetails"><%= favorite.name %></h4>
+        <img class='imageFavs' src="<%= favorite.photo %>" alt="constellation"> <br> 
         <p class="descriptionDetails"><%= favorite.description %> </p>
-        <a id='editLink' href="/favorites/edit/<%= favorite.id %>">Edit</a>
+        <a id='editLink' href="/favorites/edit?id=<%= favorite.id %>">Edit</a>
         <form id="deleteForm" action="/favorites/<%= favorite.id %>/?_method=DELETE" method="POST">
             <input id='deleteBtn' type="submit" value="Delete">
         </form>
+        </div>
         <br>
           
       

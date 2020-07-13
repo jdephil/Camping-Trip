@@ -37,6 +37,10 @@ a:hover {
     width: 80%;
 }
 
+.navLink {
+    padding-right: 5px;
+}
+
 .searchForm {
     position: absolute;
     display: inline-block;
@@ -62,7 +66,7 @@ a:hover {
     display: inline-block;
     font-size: 24px;
     margin-top: 5px;
-    margin-right: 775px;
+    margin-right: 765px;
     color: white;
 }
 
@@ -88,19 +92,35 @@ a:hover {
     color: #1E406E;
 }
 
+@keyframes broMove {
+    from {left: 0;}
+  to {left: 25%;}
+}
+
 #broText {
     font-family: 'Handlee', cursive;
      position: absolute;
      top: 25%;
      left: 25%;
      transform: translate(-50%, -50%);
+     animation-name: broMove;
+     animation-duration: 3s;
  }
+
+ @keyframes sisMove {
+    from {right: -35%;}
+  to {right: 15%;}
+}
  
  #sisText {
     font-family: 'Handlee', cursive;
      position: absolute;
      top: 40%;
-     left: 62%;
+     right: -35%;
+     animation-name: sisMove;
+     animation-duration: 3s;
+     animation-delay: 3s;
+     animation-fill-mode: forwards;
  }
  
  
@@ -152,6 +172,10 @@ a:hover {
     border-radius: 100px;
 }
 
+#favBtn:visited {
+    color: #FCEBA1;
+}
+
 #favBtn:hover {
     background-color: white;
   
@@ -187,25 +211,46 @@ a:hover {
 }
 
 .imageDetails {
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 .descriptionDetails {
-    font-size: 20px;
+    font-size: 18px;
     width: 80%;
     margin-left: 10%;
     
 }
 
 .favBtnDetails {
+    background-color: #1F5798;
+    color: #D73931;
     font-size: 32px;
-    color: #1E406E;
+    border-radius: 100px;
+    border: solid 1px white;
+}
+
+.favBtnDetails:visited {
+    color: #FCEBA1;
+}
+
+.favBtnDetails:hover {
+    background-color: white;
+  
 }
 
 /* ---- FAVORITES PAGE ---- */
 
+#favsTile {
+    border: solid 1px #FCEBA1;
+    background-color: #FCEBA1;
+    max-width: 900px;
+    margin-left: 10%;
+    color: #1F2C56;
+}
+
 #editLink {
     display: inline;
+    color: darkgray;
 }
 
 #deleteForm {
@@ -215,4 +260,22 @@ a:hover {
 #deleteBtn {
     font-size: 16px;
     margin: 0 5px;
+}
+
+#editForm {
+    margin-top: 40px;
+}
+
+#editName {
+    width: 300px;
+    margin: 10px 0;
+}
+
+#editPhoto {
+    width: 300px;
+    margin: 10px 0;
+}
+
+#editDescription {
+    margin: 10px 0;
 }

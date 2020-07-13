@@ -18,7 +18,8 @@ const isLoggedIn = require('./middleware/isLoggedIn')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const axios = require('axios'); 
 const methodOverride = require('method-override')
-// var campingDb = new pg.camping-trip(conString);
+
+
 
 
 // --- App Setup

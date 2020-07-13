@@ -1,9 +1,14 @@
-<img id='imageDetails' src="<%= stars.collection.items[0].links[0].href %>" alt="constellation">
+<img class='imageDetails' src="<%= stars.collection.items[0].links[0].href %>" alt="constellation">
 <form method="POST" action="/favorites">
-    <input hidden type="text" name="photo" value="<%= stars.collection.items[0].links[0].href %>">
-    <input hidden type="text" name="name" value="<%= stars.collection.items[0].data[0].title %>">
-    <input hidden type="text" name="description" value="<%= stars.collection.items[0].data[0].description %>">
-    <button class='favBtnDetails' class="btn" type="submit">❤︎</button>
+    <% if (currentUser) { %>
+        <input hidden type="text" name="photo" value="<%= stars.collection.items[0].links[0].href %>">
+        <input hidden type="text" name="name" value="<%= stars.collection.items[0].data[0].title %>">
+        <input hidden type="text" name="description" value="<%= stars.collection.items[0].data[0].description %>">
+        <input hidden type="text" name="userID" value="<%= user.id %>">
+        <button class='favBtnDetails' class="btn" type="submit">❤︎</button>
+        <% } else { %>
+         
+      <% } %>
     </form>
 <h4 class="titleDetails"><%= stars.collection.items[0].data[0].title %></h4>
 <p class="descriptionDetails"><%= stars.collection.items[0].data[0].description %></p>

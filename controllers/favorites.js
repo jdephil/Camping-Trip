@@ -4,7 +4,8 @@ const express = require('express')
 const router = express.Router()
 // import db
 const db = require('../models')
-const flash = require('connect-flash')
+const flash = require('connect-flash');
+//const { noExtendLeft } = require('sequelize/types/lib/operators');
 
 router.get('/', function(req, res) {
     db.favorite.findAll({
@@ -30,8 +31,8 @@ router.post('/', function(req, res) {
     })
     .then((favorites) => {
       
-      req.flash('success', 'Favorited!')
-      //res.redirect('/results')
+      console.log('favorited!')
+      
     }).catch(error => {
       console.log(error)
     })
@@ -53,16 +54,18 @@ router.delete('/:idx', (req, res) => {
   
 })  
 
-router.get('/edit/:idx', (req, res) => {
+
+router.get('/edit', (req, res) => {
   db.favorite.findOne({
     where: {
-      id: req.params.idx
+      id: req.query.id
     }
   }).then (function(favorite) {
     res.render('favorites/edit', {favorite})
   }).catch(function (error) {
     console.log(error)
   })
+  
  
 })
 
