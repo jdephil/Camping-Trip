@@ -10,7 +10,7 @@
 <div id="container">
   <img class="campingImg" src="../static/camping-home.jpg" alt="campsite">
 
-  <img id='resultImg' src="<%= stars.collection.items[0].links[0].href %>" alt="">
+  <img id='resultImg' src="<%= stars.collection.items[0].links[0].href %>" alt="<%= stars.collection.items[0].data[0].title %>">
   <p class='titleP'><%= stars.collection.items[0].data[0].title %></p>
   <a id="detailsLink" href="/results/<%= stars.collection.items[0].data[0].nasa_id %>">Woah, tell me more!</a>
  

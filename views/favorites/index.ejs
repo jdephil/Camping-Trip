@@ -4,7 +4,7 @@
       <% myFavorites.forEach((favorite, index) => { %>
         <div id="favsTile">
         <h4 class="titleDetails"><%= favorite.name %></h4>
-        <img class='imageFavs' src="<%= favorite.photo %>" alt="constellation"> <br> 
+        <img class='imageFavs' src="<%= favorite.photo %>" alt="<%= favorite.name %>"> <br> 
         <p class="descriptionDetails"><%= favorite.description %> </p>
         <a id='editLink' href="/favorites/edit?id=<%= favorite.id %>">Edit</a>
         <form id="deleteForm" action="/favorites/<%= favorite.id %>/?_method=DELETE" method="POST">

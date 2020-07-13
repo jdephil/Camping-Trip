@@ -1,4 +1,4 @@
-<img class='imageDetails' src="<%= stars.collection.items[0].links[0].href %>" alt="constellation">
+<img class='imageDetails' src="<%= stars.collection.items[0].links[0].href %>" alt="<%= stars.collection.items[0].data[0].title %>">
 <form method="POST" action="/favorites">
     <% if (currentUser) { %>
         <input hidden type="text" name="photo" value="<%= stars.collection.items[0].links[0].href %>">
