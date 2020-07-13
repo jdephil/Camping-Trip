@@ -31,6 +31,7 @@ router.post('/', function(req, res) {
     })
     .then((favorites) => {
       
+      req.flash('favorited!')
       console.log('favorited!')
       
     }).catch(error => {
