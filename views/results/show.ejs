@@ -1,15 +1,19 @@
-<img class='imageDetails' src="<%= stars.collection.items[0].links[0].href %>" alt="<%= stars.collection.items[0].data[0].title %>">
-<form method="POST" action="/favorites">
+<div class="imgDetailsDiv">
+  <img class='imageDetails' src="<%= stars.collection.items[0].links[0].href %>" alt="<%= stars.collection.items[0].data[0].title %>">
+</div>
+<div class="favsDetailsDiv">
+  <form method="POST" action="/favorites">
     <% if (currentUser) { %>
-        <input hidden type="text" name="photo" value="<%= stars.collection.items[0].links[0].href %>">
-        <input hidden type="text" name="name" value="<%= stars.collection.items[0].data[0].title %>">
-        <input hidden type="text" name="description" value="<%= stars.collection.items[0].data[0].description %>">
-        <input hidden type="text" name="userID" value="<%= user.id %>">
-        <button class='favBtnDetails' class="btn" type="submit">❤︎</button>
-        <% } else { %>
+      <input hidden type="text" name="photo" value="<%= stars.collection.items[0].links[0].href %>">
+      <input hidden type="text" name="name" value="<%= stars.collection.items[0].data[0].title %>">
+      <input hidden type="text" name="description" value="<%= stars.collection.items[0].data[0].description %>">
+      <input hidden type="text" name="userID" value="<%= user.id %>">
+      <button class='favBtnDetails' class="btn" type="submit">❤︎</button>
+      <% } else { %>
          
-      <% } %>
-    </form>
+    <% } %>
+  </form>
+</div>
 <h4 class="titleDetails"><%= stars.collection.items[0].data[0].title %></h4>
 <p class="descriptionDetails"><%= stars.collection.items[0].data[0].description %></p>
 

@@ -14,6 +14,14 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.papaDiv {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    /* grid-template-rows: repeat(5, 150px); */
+    grid-auto-rows: 10%;
+    position: relative;
+}
+
 a:link {
     color: white;
     text-decoration: none;
@@ -29,10 +37,6 @@ a:hover {
     text-decoration: none;
 }
 
-.container {
-    position: relative;
-}
-
 .campingImg {
     width: 80%;
 }
@@ -41,14 +45,7 @@ a:hover {
     padding-right: 5px;
 }
 
-.searchForm {
-    position: absolute;
-    display: inline-block;
-    width: 40%;
-    top: 55%;
-    left: 71%;
-    transform: translate(-50%, -50%);
-}
+
 
 .submitBtn {
     font-size: 16px;
@@ -77,67 +74,96 @@ a:hover {
 
 /* ---- HOME PAGE ---- */
 
-#homeImg {
-    top: -250px;
+#homeImgDiv {
     position: relative;
     z-index: -1;
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+}
+
+#homeImg {
+    object-fit: cover;
+    
+    width: 80%;
 }
 
 #sugBtnHome {
-    top: 25%;
-    position: absolute;
-    margin-top: 9px;
-    left: 80%;
+  
     font-size: 16px;
     color: #1E406E;
+    grid-row: 4;
+    grid-column: 9;
+    height: 26%;
+    width: 68%;
+    top: 8px;
+    position: relative;
 }
 
 @keyframes broMove {
-    from {left: 0;}
-  to {left: 25%;}
+    from {transform: translateX(-200px);}
+  to {transform: translateX(0px);}
 }
 
 #broText {
     font-family: 'Handlee', cursive;
-     position: absolute;
-     top: 25%;
-     left: 25%;
-     transform: translate(-50%, -50%);
+     /* position: absolute; */
+     /* top: 25%;
+     left: 25%; */
+     /* transform: translate(-50%, -50%); */
      animation-name: broMove;
      animation-duration: 3s;
+     grid-row: 4;
+     grid-column: 2 / 5;
  }
 
  @keyframes sisMove {
-    from {right: -35%;}
-  to {right: 15%;}
+    from {transform: translateX(900px);}
+  to {transform: translateX(0px);}
+}
+
+@keyframes sisShow {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
  
  #sisText {
     font-family: 'Handlee', cursive;
-     position: absolute;
+     /* position: absolute;
      top: 40%;
-     right: -35%;
-     animation-name: sisMove;
+     right: -35%; */
+     animation-name: sisMove, sisShow;
      animation-duration: 3s;
      animation-delay: 3s;
      animation-fill-mode: forwards;
+     grid-row: 5;
+     grid-column: 7 / 10;
+     justify-self: end;
+    position: relative;
+    top: 45px;
+    opacity: 0;
  }
  
- 
- #searchFormHome {
-     top: 25%;
+ .searchForm {
+     width: 100%;
+ }
+
+ .searchFormHome {
+     grid-row: 4;
+     grid-column: 7 / 10;
+     bottom: 35px;
+    right: 57px;
+    position: relative;
  }
 
 /*  ---- RESULTS PAGE ---- */
 
 .titleP {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    grid-row: 4;
+    grid-column: 4 / 8;
     background-color: #174D9B;
-    padding: 2px;
-    max-width: 500px;
+    height: max-content;
+    margin: 0px;
+    
 }
 
 .descriptionP {
@@ -150,26 +176,34 @@ a:hover {
     width: 800px;
 }
 
+.searchForm {
+    grid-row: 5;
+    grid-column: 7 / 10;
+    align-self: end;
+   position: relative;
+   justify-self: start;
+   width: auto;
+}
+
+.favsDiv {
+    grid-column: 8;
+    align-self: center;
+}
+
 #resultImg {
-    position: absolute;
-    display: inline-block;
-    width: 40%;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-height: 304px;
+    grid-column: 4 / 8;
+    grid-row: 1 / 4;
+    width: 100%;
+    height:100%;
 }
 
 #favBtn {
     border: solid 1px white;
-    position: absolute;
-    top: 20%;
-    left: 75%;
-    transform: translate(-50%, -50%);
     background-color: #1F5798;
     color: #D73931;
     font-size: 32px;
     border-radius: 100px;
+  
 }
 
 #favBtn:visited {
@@ -182,24 +216,23 @@ a:hover {
 }
 
 #suggestionsBtn {
-    position: absolute;
-    top: 57%;
-    left: 83%;
-    transform: translate(-50%, -50%);
-    margin-top: 5px;
-    font-size: 16px;
+   grid-row: 5;
+   grid-column: 9;
     color: #1E406E;
+    height: 26%;
+    width: 68%;
+    font-size: 16px;
+    align-self: end;
 }
 
 
 #detailsLink {
-    position: absolute;
-    top: 60%;
-    left: 25%;
-    transform: translate(-50%, -50%);
     font-family: 'Handlee', cursive;
     text-decoration: underline;
-    font-size: 28px;
+    grid-column: 3 / 5;
+    grid-row: 5;
+    align-self: center;
+   
 }
 
 #detailsLink:visited {
@@ -210,15 +243,15 @@ a:hover {
     color: grey;
 }
 
-.imageDetails {
+.imgDetailsDiv {
     margin-top: 40px;
 }
 
+
 .descriptionDetails {
-    font-size: 18px;
-    width: 80%;
-    margin-left: 10%;
-    
+    margin: 0 auto;
+    overflow: auto;
+    width: 80%; 
 }
 
 .favBtnDetails {
