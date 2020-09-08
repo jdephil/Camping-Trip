@@ -93,8 +93,8 @@ a:hover {
     color: #1E406E;
     grid-row: 4;
     grid-column: 9;
-    height: 26%;
-    width: 68%;
+    height: fit-content;
+    width: fit-content;
     top: 8px;
     position: relative;
 }
@@ -219,8 +219,8 @@ a:hover {
    grid-row: 5;
    grid-column: 9;
     color: #1E406E;
-    height: 26%;
-    width: 68%;
+    height: fit-content;
+    width: fit-content;
     font-size: 16px;
     align-self: end;
 }
@@ -311,4 +311,38 @@ a:hover {
 
 #editDescription {
     margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .searchFormHome {
+        grid-row: 3;
+        grid-column: 5 / 10;
+        bottom: 0px;
+        right: 0px;
+    }
+
+    #sugBtnHome {
+        grid-row: 3;
+        top: 20px;
+    }
+
+    #sisText {
+        top: 0px;
+    }
+
+    #brandP {
+        margin-right: 350px;
+    }
+
+    .searchForm {
+        grid-column: 6 / 10;
+    }
+
+    #favsTile {
+        margin-left: 0px;
+    }
 }
