@@ -84,7 +84,6 @@ a:hover {
 #homeImg {
     object-fit: cover;
     
-    width: 80%;
 }
 
 #sugBtnHome {
@@ -106,10 +105,6 @@ a:hover {
 
 #broText {
     font-family: 'Handlee', cursive;
-     /* position: absolute; */
-     /* top: 25%;
-     left: 25%; */
-     /* transform: translate(-50%, -50%); */
      animation-name: broMove;
      animation-duration: 3s;
      grid-row: 4;
@@ -313,25 +308,29 @@ a:hover {
     margin: 10px 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
     body {
         font-size: 14px;
     }
 
+    .campingImg {
+        width: 100%;
+    }
     .searchFormHome {
         grid-row: 3;
         grid-column: 5 / 10;
         bottom: 0px;
         right: 0px;
+        align-self: end;
     }
 
     #sugBtnHome {
         grid-row: 3;
-        top: 20px;
+        top: 40px;
     }
 
-    #sisText {
-        top: 0px;
+    #broText {
+        grid-column: 1 / 5;
     }
 
     #brandP {
@@ -345,4 +344,8 @@ a:hover {
     #favsTile {
         margin-left: 0px;
     }
+}
+
+@media (max-width: 376px) {
+    
 }
